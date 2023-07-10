@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Terrain Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
-    bool grounded;
+    public bool grounded;
 
 
     [Header("Character Assignment")]
@@ -136,8 +136,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(attackKey))
         {
-            // TODO: Attack entities
-            // TODO: Hit enemies
+            // TODO: Attack enemies
+            // TODO: Get hit by enemies
 
             StartCoroutine(Attack());
         }
