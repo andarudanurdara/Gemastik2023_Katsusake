@@ -8303,7 +8303,8 @@ MonoBehaviour:
   jumpForce: 7.5
   airMultiplier: 1
   rotationSpeed: 10
-  jumpKey: 122
+  jumpKey: 32
+  attackKey: 323
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
@@ -8321,6 +8322,8 @@ MonoBehaviour:
   sphereCastRadius: 0.25
   maxWallLookAngle: 30
   fallThresholdVelocity: 10
+  damage: 0
+  attackRate: 0
 --- !u!143 &575211956
 CharacterController:
   m_ObjectHideFlags: 0
@@ -17864,15 +17867,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 375007912921819667, guid: 9669c322a24283d419a2b1a418e71f94, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.212012
+      value: 0.21201201
       objectReference: {fileID: 0}
     - target: {fileID: 375007912921819667, guid: 9669c322a24283d419a2b1a418e71f94, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000014562414
+      value: -1.7359751e-15
       objectReference: {fileID: 0}
     - target: {fileID: 375007912921819667, guid: 9669c322a24283d419a2b1a418e71f94, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000031592249
+      value: -6.748024e-17
       objectReference: {fileID: 0}
     - target: {fileID: 375007913268840629, guid: 9669c322a24283d419a2b1a418e71f94, type: 3}
       propertyPath: m_LocalPosition.y

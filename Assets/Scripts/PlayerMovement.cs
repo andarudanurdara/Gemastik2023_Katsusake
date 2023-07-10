@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode attackKey = KeyCode.Mouse0;
 
     [Header("Terrain Check")]
     public float playerHeight;
@@ -55,6 +56,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("FallDamage")]
     public float fallThresholdVelocity;
 
+    [Header("Attack")]
+    public float damage;
+    private float attackRate = 1;
+    private bool isAttacking = false;
+
 
     private void Start()
     {
@@ -90,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
         // Variabel animasi
         animator.SetBool("isGround", grounded);
         animator.SetFloat("Speed", rb.velocity.magnitude);
+        animator.SetBool("isAttacking", isAttacking);
 
         // handle drag
         if (grounded)
@@ -125,6 +132,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyUp(jumpKey))
         {
             readyToJump = true;
+        }
+
+        if (Input.GetKey(attackKey))
+        {
+            // TODO: Attack entities
+            // TODO: Hit enemies
+
+            StartCoroutine(Attack());
         }
 
         if (wallFront && wallLookAngle < maxWallLookAngle)
@@ -185,5 +200,14 @@ public class PlayerMovement : MonoBehaviour
     {
         wallFront = Physics.SphereCast(transform.position, sphereCastRadius, moveDirection, out frontWallHit, detectionLength, whatIsClimbable);
         wallLookAngle = Vector3.Angle(transform.forward, -frontWallHit.normal);
+    }
+
+    private IEnumerator Attack()
+    {
+        isAttacking = true;
+
+        yield return new WaitForSeconds(attackRate);
+
+        isAttacking = false;
     }
 }
